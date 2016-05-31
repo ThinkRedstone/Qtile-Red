@@ -114,57 +114,57 @@ for i in groups:
             Key([mod, "shift"], i.name, lazy.window.togroup(i.name), lazy.group[i.name].toscreen())
         )
 
-    layouts = [
-        layout.Matrix(border_focus='#ff0000')
-    ]
+layouts = [
+    layout.Matrix(border_focus='#ff0000')
+]
 
-    widget_defaults = dict(
-        font='Arial',
-        fontsize=16,
-        padding=3,
-    )
+widget_defaults = dict(
+    font='Arial',
+    fontsize=16,
+    padding=3,
+)
 
-    screens = [
-        Screen(
-            bottom=bar.Bar(
-                [
-                    widget.GroupBox(),
-                    widget.WindowName(),
-                    widget.Systray(),
-                    widget.Prompt(),
-                    widget.Systray(),
-                    widget.Clock(format='%I:%M %p', timezone="Asia/Jerusalem"),
-                ],
-                30,
-            ),
+screens = [
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.GroupBox(),
+                widget.WindowName(),
+                widget.Systray(),
+                widget.Prompt(),
+                widget.Systray(),
+                widget.Clock(format='%I:%M %p', timezone="Asia/Jerusalem"),
+            ],
+            30,
         ),
-    ]
+    ),
+]
 
-    # Drag floating layouts.
-    mouse = [
-        Drag([mod], "Button1", lazy.window.set_position_floating(),
-             start=lazy.window.get_position()),
-        Drag([mod], "Button3", lazy.window.set_size_floating(),
-             start=lazy.window.get_size()),
-        Click([mod], "Button2", lazy.window.bring_to_front())
-    ]
+# Drag floating layouts.
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front())
+]
 
-    dgroups_key_binder = None
-    dgroups_app_rules = []
-    main = None
-    follow_mouse_focus = True
-    bring_front_click = False
-    cursor_warp = False
-    floating_layout = layout.Floating(border_focus='#ff0000')
-    auto_fullscreen = True
-    focus_on_window_activation = "smart"
+dgroups_key_binder = None
+dgroups_app_rules = []
+main = None
+follow_mouse_focus = True
+bring_front_click = False
+cursor_warp = False
+floating_layout = layout.Floating(border_focus='#ff0000')
+auto_fullscreen = True
+focus_on_window_activation = "smart"
 
-    # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-    # string besides java UI toolkits; you can see several discussions on the
-    # mailing lists, github issues, and other WM documentation that suggest setting
-    # this string if your java app doesn't work correctly. We may as well just lie
-    # and say that we're a working one by default.
-    #
-    # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-    # java that happens to be on java's whitelist.
-    wmname = "LG3D"
+# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
+# string besides java UI toolkits; you can see several discussions on the
+# mailing lists, github issues, and other WM documentation that suggest setting
+# this string if your java app doesn't work correctly. We may as well just lie
+# and say that we're a working one by default.
+#
+# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
+# java that happens to be on java's whitelist.
+wmname = "LG3D"
