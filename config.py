@@ -94,8 +94,8 @@ keys = [
 ]
 groups = [Group("a", layouts=[layout.Max()], matches=[Match(wm_class=["chromium"])]),
           Group("s", layouts=[layout.Max(), layout.MonadTall(border_width=1, ratio=0.8)], matches=[Match(wm_class=["jetbrains-pycharm-ce"])]),
-          Group("d", layouts=[layout.Floating(), layout.Max()], matches=[Match(wm_class=[""])]),
-          Group("f", layouts=[layout.Stack(num_stacks=2)], matches=[Match(wm_class=["clementine", "deluge"])]),
+          Group("d", layouts=[layout.Floating(border_focus='#ff0000'), layout.Max()], matches=[Match(wm_class=[""])]),
+          Group("f", layouts=[layout.Stack(num_stacks=2, border_focus='#ff0000')], matches=[Match(wm_class=["clementine", "deluge"])]),
           Group("u", matches=[Match(wm_class=[""])]),
           Group("i", matches=[Match(wm_class=[""])]),
           Group("o", matches=[Match(wm_class=[""])]),
@@ -115,7 +115,7 @@ for i in groups:
         )
 
     layouts = [
-        layout.Matrix()
+        layout.Matrix(border_focus='#ff0000')
     ]
 
     widget_defaults = dict(
@@ -155,7 +155,7 @@ for i in groups:
     follow_mouse_focus = True
     bring_front_click = False
     cursor_warp = False
-    floating_layout = layout.Floating()
+    floating_layout = layout.Floating(border_focus='#ff0000')
     auto_fullscreen = True
     focus_on_window_activation = "smart"
 
