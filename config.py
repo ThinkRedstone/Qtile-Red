@@ -27,6 +27,7 @@
 from libqtile.config import Key, Screen, Group, Drag, Click, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
+from libqtile import hook
 
 mod = "mod1"
 
@@ -95,7 +96,7 @@ keys = [
 groups = [Group("a", layouts=[layout.Max()], matches=[Match(wm_class=["chromium"])]),
           Group("s", layouts=[layout.Max(), layout.MonadTall(border_width=1, ratio=0.8)], matches=[Match(wm_class=["jetbrains-pycharm-ce"])]),
           Group("d", layouts=[layout.Floating(border_focus='#ff0000'), layout.Max()], matches=[Match(wm_class=[""])]),
-          Group("f", layouts=[layout.Stack(num_stacks=2, border_focus='#ff0000')], matches=[Match(wm_class=["clementine", "deluge"])]),
+          Group("f", layouts=[layout.Stack(num_stacks=2, border_focus='#ff0000')], matches=[Match(wm_class=["Clementine", "Deluge"])]),
           Group("u", matches=[Match(wm_class=[""])]),
           Group("i", matches=[Match(wm_class=[""])]),
           Group("o", matches=[Match(wm_class=[""])]),
@@ -168,3 +169,10 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+from subprocess import call
+
+
+@hook.subscribe.startup_once
+def autostart():
+    call(['/home/thinkredstone/Scripts/startup_programs.sh'])
