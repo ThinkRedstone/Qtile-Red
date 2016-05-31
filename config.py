@@ -94,8 +94,8 @@ keys = [
 ]
 groups = [Group("a", layouts=[layout.Max()], matches=[Match(wm_class=["chromium"])]),
           Group("s", layouts=[layout.Max(), layout.MonadTall(border_width=1, ratio=0.8)], matches=[Match(wm_class=["jetbrains-pycharm-ce"])]),
-          Group("d", layouts=[layout.Max(), layout.Stack(num_stacks=2)], matches=[Match(wm_class=[""])]),
-          Group("f", layouts=[layout.Stack(num_stacks=2)], matches=[Match(wm_class=["clementine"])]),
+          Group("d", layouts=[layout.Floating(), layout.Max()], matches=[Match(wm_class=[""])]),
+          Group("f", layouts=[layout.Stack(num_stacks=2)], matches=[Match(wm_class=["clementine", "deluge"])]),
           Group("u", matches=[Match(wm_class=[""])]),
           Group("i", matches=[Match(wm_class=[""])]),
           Group("o", matches=[Match(wm_class=[""])]),
