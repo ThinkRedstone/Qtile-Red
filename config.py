@@ -130,9 +130,10 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(),
-                widget.WindowName(),
-                widget.Systray(),
                 widget.Prompt(),
+                widget.TextBox(text=" ", width=bar.STRETCH),
+                widget.Mpris(),
+                widget.Systray(),
                 widget.Systray(),
                 widget.Clock(format='%I:%M %p', timezone="Asia/Jerusalem"),
             ],
