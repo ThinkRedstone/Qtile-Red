@@ -130,6 +130,7 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(),
+                widget.KeyboardLayout(configured_keyboards=['us', 'il']),
                 widget.Prompt(),
                 widget.TextBox(text=" ", width=bar.STRETCH),
                 widget.Mpris(),
