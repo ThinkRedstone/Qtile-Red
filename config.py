@@ -73,6 +73,13 @@ keys = [
         lazy.layout.rotate()
     ),
 
+    # Clementine Controls
+    Key(["control", "shift"], "KP_Up", lazy.spawn("clementine --volume-up")),
+    Key(["control", "shift"], "KP_Down", lazy.spawn("clementine --volume-down")),
+    Key(["control", "shift"], "KP_Left", lazy.spawn("clementine --previous")),
+    Key(["control", "shift"], "KP_Right", lazy.spawn("clementine --next")),
+    Key(["control", "shift"], "KP_Begin", lazy.spawn("clementine --play-pause")),
+
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
