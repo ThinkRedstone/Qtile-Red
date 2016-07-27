@@ -89,8 +89,9 @@ keys = [
         lazy.layout.toggle_split()
     ),
     Key([mod, "control"], "t", lazy.spawn("xfce4-terminal")),
+    Key([mod, "control"], "f", lazy.spawn("thunar")),
 
-    # Toggle between different layouts as defined below
+    # Toggle between different layouts as defined below9
     Key([mod], "space", lazy.next_layout()),
 
     Key([mod], "w", lazy.window.kill()),
@@ -100,16 +101,17 @@ keys = [
 
     Key([mod, "mod4"], "r", lazy.restart()),
     Key([mod, "mod4"], "q", lazy.shutdown()),
+    Key([mod, "mod4"], "p", lazy.spawn("maim")),
 
     Key([mod], "r", lazy.spawncmd()),
 ]
 groups = [Group("a", layouts=[layout.Max(), layout.MonadTall(border_width=1, ratio=0.65)], matches=[Match(wm_class=["chromium"])]),
-          Group("s", layouts=[layout.MonadTall(border_width=1, ratio=0.65), layout.Max()], matches=[Match(wm_class=["jetbrains-pycharm-ce", "dota2"])]),
+          Group("s", layouts=[layout.MonadTall(border_width=1, ratio=0.65), layout.Max()], matches=[Match(wm_class=["jetbrains-pycharm-ce", "jetbrains-idea-ce", "dota2"])]),
           Group("d", layouts=[layout.MonadTall(border_width=1, ratio=0.5), layout.Matrix(border_focus='#ff0000')], matches=[Match(wm_class=["Skype", "Steam"])]),
           Group("f", layouts=[layout.Stack(num_stacks=2, border_focus='#ff0000')], matches=[Match(wm_class=["Clementine", "Deluge"])]),
           Group("u", matches=[Match(wm_class=[""])]),
           Group("i", matches=[Match(wm_class=[""])]),
-          Group("o", matches=[Match(wm_class=[""])]),
+          Group("o", layouts=[layout.Floating()], matches=[Match(wm_class=[""])]),
           Group("p", matches=[Match(wm_class=[""])]),
           ]
 
@@ -187,3 +189,9 @@ from subprocess import call
 @hook.subscribe.startup_once
 def autostart():
     call(['/home/thinkredstone/Scripts/startup_programs.sh'])
+
+
+@hook.subscribe.client_new
+def sort_xcom(window):
+    if "XCOM" in window.name:
+        window.togroup("o")
