@@ -112,7 +112,7 @@ groups = [Group("a", layouts=[layout.Max(), layout.MonadTall(border_width=1, rat
           Group("u", matches=[Match(wm_class=[""])]),
           Group("i", matches=[Match(wm_class=[""])]),
           Group("o", layouts=[layout.Floating()], matches=[Match(wm_class=[""])]),
-          Group("p", matches=[Match(wm_class=[""])]),
+          Group("p", matches=[Match(role=["playall"])]),
           ]
 
 for i in groups:
