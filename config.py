@@ -126,6 +126,9 @@ for i in groups:
         keys.append(
             Key([mod, "shift"], i.name, lazy.window.togroup(i.name), lazy.group[i.name].toscreen())
         )
+        keys.append(
+            Key([mod, "control", "shift"], i.name, lazy.window.togroup(i.name))
+        )
 
 layouts = [
     layout.Matrix(border_focus='#ff0000'), layout.MonadTall(border_width=1, ratio=0.75), layout.Max()
@@ -192,6 +195,21 @@ def autostart():
 
 
 @hook.subscribe.client_new
+def on_client_new(window):
+    sort_xcom(window)
+    place_steam(window)
+
+
+def place_steam(window):
+    _, wmclass = window.window.get_wm_class()
+    if wmclass == "Steam":
+        with open("/home/thinkredstone/bla", "a") as f:
+            g = [g for g in groups if g.name == "d"].pop()
+            layout = [l for l in g.layouts if l.name == "monadtall"].pop()
+            # layout.focus(window)
+            # lazy.group['d'].layout.swap_main(window)
+
+
 def sort_xcom(window):
     if "XCOM" in window.name:
         window.togroup("o")
