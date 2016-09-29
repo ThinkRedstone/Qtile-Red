@@ -29,6 +29,12 @@ from libqtile.command import lazy
 from libqtile import layout, bar, widget
 from libqtile import hook
 
+
+def smart_kill(l):
+    if not l.match(wmclass="dota2"):
+        l.kill()
+
+
 mod = "mod1"
 
 keys = [
@@ -94,7 +100,7 @@ keys = [
     # Toggle between different layouts as defined below9
     Key([mod], "space", lazy.next_layout()),
 
-    Key([mod], "w", lazy.window.kill()),
+    Key([mod], "w", lazy.window.function(smart_kill)),
 
     # Toggle different keyboard layouts
     Key([mod], "Caps_Lock", lazy.widget['keyboardlayout'].next_keyboard()),
