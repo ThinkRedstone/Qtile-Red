@@ -100,7 +100,7 @@ keys = [
     # Toggle between different layouts as defined below9
     Key([mod], "space", lazy.next_layout()),
 
-    Key([mod], "w", lazy.window.function(smart_kill)),
+    Key([mod], "q", lazy.window.function(smart_kill)),
 
     # Toggle different keyboard layouts
     Key([mod], "Caps_Lock", lazy.widget['keyboardlayout'].next_keyboard()),
@@ -203,13 +203,13 @@ def autostart():
 @hook.subscribe.client_new
 def on_client_new(window):
     sort_xcom(window)
-    place_steam(window)
+    place_clementine(window)
 
 
-def place_steam(window):
+def place_clementine(window):
     _, wmclass = window.window.get_wm_class()
-    if wmclass == "Steam":
-        with open("/home/thinkredstone/bla", "a") as f:
+    if wmclass == "Xfce4-terminal":
+        with open("/home/thinkredstone/bla", "w") as f:
             g = [g for g in groups if g.name == "d"].pop()
             layout = [l for l in g.layouts if l.name == "monadtall"].pop()
             # layout.focus(window)
