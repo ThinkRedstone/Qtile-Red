@@ -111,14 +111,14 @@ keys = [
 
     Key([mod], "r", lazy.spawncmd()),
 ]
-groups = [Group("a", layouts=[layout.Max(), layout.MonadTall(border_width=1, ratio=0.65)], matches=[Match(wm_class=["chromium"])]),
+groups = [Group("a", layouts=[layout.Max(), layout.MonadTall(border_width=1, ratio=0.65)], matches=[Match(wm_instance_class=["chromium"])]),
           Group("s", layouts=[layout.MonadTall(border_width=1, ratio=0.65), layout.Max()], matches=[Match(wm_class=["jetbrains-pycharm-ce", "jetbrains-idea-ce", "dota2"])]),
           Group("d", layouts=[layout.MonadTall(border_width=1, ratio=0.5), layout.Matrix(border_focus='#ff0000')], matches=[Match(wm_class=["Skype", "Steam"])]),
           Group("f", layouts=[layout.Stack(num_stacks=2, border_focus='#ff0000')], matches=[Match(wm_class=["Clementine", "Deluge"])]),
-          Group("u", matches=[Match(wm_class=[""])]),
-          Group("i", matches=[Match(wm_class=[""])]),
-          Group("o", layouts=[layout.Floating()], matches=[Match(wm_class=[""])]),
-          Group("p", matches=[Match(role=["playall"])]),
+          Group("z", matches=[Match(wm_class=[""])]),
+          Group("x", matches=[Match(wm_class=[""])]),
+          Group("c", layouts=[layout.Floating()], matches=[Match(wm_class=[""])]),
+          Group("v", matches=[Match(role=["playall"])]),
           ]
 
 for i in groups:
