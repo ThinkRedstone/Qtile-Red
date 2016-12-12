@@ -115,9 +115,9 @@ groups = [Group("a", layouts=[layout.Max(), layout.MonadTall(border_width=1, rat
           Group("s", layouts=[layout.MonadTall(border_width=1, ratio=0.65), layout.Max()], matches=[Match(wm_class=["jetbrains-pycharm-ce", "jetbrains-idea-ce", "dota2"])]),
           Group("d", layouts=[layout.MonadTall(border_width=1, ratio=0.5), layout.Matrix(border_focus='#ff0000')], matches=[Match(wm_class=["Skype", "Steam"])]),
           Group("f", layouts=[layout.Stack(num_stacks=2, border_focus='#ff0000')], matches=[Match(wm_class=["Clementine", "Deluge"])]),
-          Group("z", matches=[Match(wm_class=[""])]),
+          Group("z", matches=[Match(wm_class=["exe.Wine"])]),
           Group("x", matches=[Match(wm_class=[""])]),
-          Group("c", layouts=[layout.Floating()], matches=[Match(wm_class=[""])]),
+          Group("c", layouts=[layout.Floating()], matches=[Match(wm_class=["FTL"])]),
           Group("v", matches=[Match(role=["playall"])]),
           ]
 
@@ -202,7 +202,6 @@ def autostart():
 
 @hook.subscribe.client_new
 def on_client_new(window):
-    sort_xcom(window)
     place_clementine(window)
 
 
@@ -215,7 +214,3 @@ def place_clementine(window):
             # layout.focus(window)
             # lazy.group['d'].layout.swap_main(window)
 
-
-def sort_xcom(window):
-    if "XCOM" in window.name:
-        window.togroup("o")
