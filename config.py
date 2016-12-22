@@ -150,7 +150,7 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(this_current_screen_border='FF0000', urgent_alert_method='text'),
                 widget.KeyboardLayout(configured_keyboards=['us', 'il']),
                 widget.Prompt(),
                 widget.TextBox(text=" ", width=bar.STRETCH),
