@@ -113,7 +113,7 @@ keys = [
 ]
 groups = [Group("a", layouts=[layout.Max(), layout.MonadTall(border_width=1, ratio=0.65)], matches=[Match(wm_instance_class=["chromium"])]),
           Group("s", layouts=[layout.MonadTall(border_width=1, ratio=0.65), layout.Max()], matches=[Match(wm_class=["jetbrains-pycharm-ce", "jetbrains-idea-ce", "dota2"])]),
-          Group("d", layouts=[layout.MonadTall(border_width=1, ratio=0.5), layout.Matrix(border_focus='#ff0000')], matches=[Match(wm_class=["Skype", "Steam"])]),
+          Group("d", layouts=[layout.MonadTall(border_width=1, ratio=0.5), layout.Matrix(border_focus='#ff0000')], matches=[Match(wm_class=["Skype", "Steam", "discord"])]),
           Group("f", layouts=[layout.Stack(num_stacks=2, border_focus='#ff0000')], matches=[Match(wm_class=["Clementine", "Deluge"])]),
           Group("z", matches=[Match(wm_class=["exe.Wine"])]),
           Group("x", matches=[Match(wm_class=[""])]),
